@@ -55,6 +55,7 @@ if($user){
 	$loginUrl = $facebook->getLoginUrl(array(
  		'scope'			=> 'publish_actions user_groups manage_pages read_insights',		
 		
+		
 		'redirect_uri'	=> $site_url,
 		));
 }
