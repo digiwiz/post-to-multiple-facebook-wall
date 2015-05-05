@@ -53,7 +53,7 @@ if($user){
 }else{
 	// Get login URL
 	$loginUrl = $facebook->getLoginUrl(array(
- 		'scope'			=> 'publish_stream user_groups manage_pages read_insights',		
+ 		'scope'			=> 'publish_actions user_groups manage_pages read_insights',		
 		
 		'redirect_uri'	=> $site_url,
 		));
