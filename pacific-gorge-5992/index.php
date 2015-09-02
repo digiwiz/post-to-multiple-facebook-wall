@@ -90,6 +90,7 @@ function display($collection,&$up,$limit,$type) {
 
 			$name = preg_replace('/Tigre Géant /', '', preg_replace('/Giant Tiger /', '', $page['name'], 1), 1);
 //			$storeNumber = substr( ( preg_replace('/Tigre Géant /', '', preg_replace('/Giant Tiger /', '', $page['description'], 1), 1) ) , 0, 4);
+
 			$storeNumber = $page['store_number'];
 
 			$province = $page['location']['state'];
