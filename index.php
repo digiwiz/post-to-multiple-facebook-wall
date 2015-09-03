@@ -180,7 +180,8 @@ function display($collection,&$up,$limit,$type) {
 		<tr><th colspan="2">
 		<?php if($type == 'pages') echo "Pages:";
 		elseif($type == 'groups') echo "Groups:";
-		elseif($type == 'ON') echo "Ontario:";
+		elseif($type == 'ON') echo "Ontario A:";
+		elseif($type == 'ONB') echo "Ontario B:";
 		elseif($type == 'QC') echo "Quebec:";
 		elseif($type == 'AB') echo "Alberta:";
 		elseif($type == 'BC') echo "British Columbia:";
