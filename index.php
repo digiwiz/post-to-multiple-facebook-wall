@@ -236,7 +236,8 @@ foreach($pages['data'] as $page) {
 array_multisort($storeNumbers,SORT_ASC,$pages['data']);
 
 foreach($pages['data'] as $page) {
-	if($page['location']['state'] == 'ON' and  $page['id'] != "96000832822" and $page['id'] != "187361710529") $pagesON[] = $page;
+	if($page['location']['state'] == 'ON' and  $page['id'] != "96000832822" and $page['id'] != "187361710529" and intval(    substr((preg_replace('/Tigre Géant #/', '', preg_replace('/Giant Tiger #/', '', $page['description'], 1), 1)) ,0 ,3)  ) <100 ) $pagesON[] = $page;
+	if($page['location']['state'] == 'ON' and  $page['id'] != "96000832822" and $page['id'] != "187361710529" and intval(    substr((preg_replace('/Tigre Géant #/', '', preg_replace('/Giant Tiger #/', '', $page['description'], 1), 1)) ,0 ,3)  ) >99 ) $pagesONB[] = $page;
 	if($page['location']['state'] == 'QC' and  $page['id'] != "187361710529" ) $pagesQC[] = $page;
 	if($page['location']['state'] == 'AB') $pagesAB[] = $page;
 	if($page['location']['state'] == 'BC') $pagesBC[] = $page;
@@ -247,7 +248,8 @@ foreach($pages['data'] as $page) {
 	if($page['location']['state'] == 'PE') $pagesPE[] = $page;
 }
 
-display($pagesON,$up,$limit,'ON');
+display($pagesON,$up,$limit,'ON A');
+display($pagesONB,$up,$limit,'ON B');
 display($pagesQC,$up,$limit,'QC');
 display($pagesAB,$up,$limit,'AB');
 display($pagesBC,$up,$limit,'BC');
