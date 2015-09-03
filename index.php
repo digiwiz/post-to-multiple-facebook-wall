@@ -249,8 +249,8 @@ foreach($pages['data'] as $page) {
 	if($page['location']['state'] == 'PE') $pagesPE[] = $page;
 }
 
-display($pagesON,$up,$limit,'ON A');
-display($pagesONB,$up,$limit,'ON B');
+display($pagesON,$up,$limit,'ON');
+display($pagesONB,$up,$limit,'ONB');
 display($pagesQC,$up,$limit,'QC');
 display($pagesAB,$up,$limit,'AB');
 display($pagesBC,$up,$limit,'BC');
