@@ -32,7 +32,6 @@
 	<center><table style="width:750px;" >
 		<tr>
 			<td><a href="index.php" ><img src="images/logo_en.jpg" /></a></td>
-			<td><a href="http://25labs.com/tutorial-post-to-multiple-facebook-wall-or-timeline-in-one-go-using-graph-api-batch-request/" >Click here to read the tutorial on 25labs.com</a></td>
 			<td><?php if ($user) echo '<a href="'.$logoutUrl.'">Logout</a>'; else echo '<a href="'.$loginUrl.'">Login</a>'; ?></td></tr>
 		</table></center>
 	</div>
