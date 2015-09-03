@@ -1,7 +1,7 @@
 <?php
 //Application Configurations
-$app_id        = "544782395574012";
-$app_secret    = "800d3e20387241a325d33a8441da0550";
+$app_id        = "376394609156640";
+$app_secret    = "9c5e942966c136fc59c2459d5cba9569";
 $site_url      = "https://pacific-gorge-5992.herokuapp.com/";
 
 
