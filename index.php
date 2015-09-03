@@ -7,6 +7,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>Publish to Multiple wall or timeline using Facebook batch request</title>
+
+<link rel="stylesheet" href="css/anytime.5.0.5.css" />
+
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+
+<script src="js/anytime.5.0.5.js"></script>
+
 <style type="text/css">
 	html,body { margin:0; padding:0; font-family:tahoma,verdana,arial,sans-serif; text-align:center;}
 	#top-bar { position:fixed; top:0; left:0; z-index:999; width:100%; height:65px; }
@@ -15,6 +22,92 @@
 	.input { border:1px solid #006; background:#ffc; width:300px; font-size:small; font-family:courier; }
 	img {border: none;}
 	p { text-align:left; }
+	
+	a:link {
+		text-decoration: none;
+	}
+
+	a:visited {
+		text-decoration: none;
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	a:active {
+		text-decoration: underline;
+	}
+	
+	.store_number {
+		font-family: Arial;
+		color: #dd0505;
+		font-size: 12px;
+		padding: 5px 10px 5px 10px;
+		text-decoration: none;
+	}
+	
+	.store_name {
+		font-family: Arial;
+		color: #0505dd;
+		font-size: 12px;
+		padding: 5px 10px 5px 10px;
+		text-decoration: none;
+	}
+	
+	.page_likes {
+		background: #3b5998;
+		background-image: -webkit-linear-gradient(top, #3b5998, #2980b9);
+		background-image: -moz-linear-gradient(top, #3b5998, #2980b9);
+		background-image: -ms-linear-gradient(top, #3b5998, #2980b9);
+		background-image: -o-linear-gradient(top, #3b5998, #2980b9);
+		background-image: linear-gradient(to bottom, #3b5998, #2980b9);
+		-webkit-border-radius: 6;
+		-moz-border-radius: 6;
+		border-radius: 6px;
+		font-family: Arial;
+		color: #ffffff;
+		font-size: 12px;
+		padding: 5px 10px 5px 10px;
+		text-decoration: none;
+	}
+	.page_notifications {
+		background: #ff0000;
+		background-image: -webkit-linear-gradient(top, #ff0000, #b80000);
+		background-image: -moz-linear-gradient(top, #ff0000, #b80000);
+		background-image: -ms-linear-gradient(top, #ff0000, #b80000);
+		background-image: -o-linear-gradient(top, #ff0000, #b80000);
+		background-image: linear-gradient(to bottom, #ff0000, #b80000);
+		-webkit-border-radius: 6;
+		-moz-border-radius: 6;
+		border-radius: 6px;
+		font-family: Arial;
+		color: #ffffff;
+		font-size: 12px;
+		padding: 5px 10px 5px 10px;
+		text-decoration: none;
+	}
+	.page_messages {
+		background: #ff8400;
+		background-image: -webkit-linear-gradient(top, #ff8400, #b05e06);
+		background-image: -moz-linear-gradient(top, #ff8400, #b05e06);
+		background-image: -ms-linear-gradient(top, #ff8400, #b05e06);
+		background-image: -o-linear-gradient(top, #ff8400, #b05e06);
+		background-image: linear-gradient(to bottom, #ff8400, #b05e06);
+		-webkit-border-radius: 6;
+		-moz-border-radius: 6;
+		border-radius: 6px;
+		font-family: Arial;
+		color: #ffffff;
+		font-size: 12px;
+		padding: 5px 10px 5px 10px;
+		text-decoration: none;
+	}
+	
+	
+	
+	
+	
 </style>
 <script language='JavaScript'>
 	function checkedAll () {
@@ -25,32 +118,48 @@
 		}
 	}
 </script>
+
+
+
+
+
 </head>
 <body style="padding-top:70px;" >
 <div id="top-bar"> 
 	<div id="topbar-inner">
-	<center><table style="width:750px;" >
+	<center><table style="width:950px;" >
 		<tr>
 			<td><a href="index.php" ><img src="images/logo_en.jpg" /></a></td>
+			<td><a href="http://25labs.com/tutorial-post-to-multiple-facebook-wall-or-timeline-in-one-go-using-graph-api-batch-request/" >Click here to read the tutorial on 25labs.com</a></td>
 			<td><?php if ($user) echo '<a href="'.$logoutUrl.'">Logout</a>'; else echo '<a href="'.$loginUrl.'">Login</a>'; ?></td></tr>
 		</table></center>
 	</div>
 </div>
 <h2>Post to Multiple Walls / Timelines (Pages, Groups or Friends)</h2>
 </br>
+</br>
+</br>
+</br>
 
 <?php if(!$user) { ?><div style="padding-top:150px;" ><a href="<?=$loginUrl?>"><img src="images/f-connect.png" alt="Connect to your Facebook Account"/></a><br/>This website will <b>NOT</b> post anything to your wall or like any page automatically.</div><?php } else {?>
 
+
+
 <form id="myform" action="" method="post">
 <center><table>
-	<tr><td>Message</td><td><textarea class="input" name="message" >Great Deal</textarea></td>
+	<tr><td>Message</td><td><textarea class="input" name="message" ></textarea></td>
 		<td rowspan="7"><input type="image" name="submit" src="images/submitbutton.jpg" ></td></tr>
-	<tr><td>Link</td><td><input class="input" type="text" name="link" value="http://www.flyertown.ca/flyers_share/gianttiger-weeklyflyer/item/781072?auto_locate=true&locale=en&type=1" /></td></tr>
-	<tr><td>Picture</td><td><input class="input" type="text" name="picture" value="http://d2edxydlldej8a.cloudfront.net/flyer_items/6051357/1368711992/plus_large.jpg" /></td></tr>
-	<tr><td>Name</td><td><input class="input" type="text" name="name" value="$6.97 Cardinal Burgers" /></td></tr>
-	<tr><td>Caption</td><td><input class="input" type="text" name="caption" value="Save $4 Limit of 4" /></td></tr>
-	<tr><td>Scheduled</td><td><input class="input" type="text" name="scheduled" value="1369112400" /></td></tr>
-	<tr><td>Description</td><td><textarea class="input" name="description" rows="7" >DESCRIPTION Assorted 1.02-1.21 kg #585855</textarea></td></tr>
+	<tr><td>Link</td><td><input class="input" type="text" name="link" value="" /></td></tr>
+	<tr><td>Picture</td><td><input class="input" type="text" name="picture" value="" /></td></tr>
+	<tr><td>Name</td><td><input class="input" type="text" name="name" value="" /></td></tr>
+	<tr><td>Caption</td><td><input class="input" type="text" name="caption" value="" /></td></tr>
+
+	<tr><td>Scheduled</td><td><input type="text" id="dateTimeField" name="scheduled" ></td></tr>
+       <script>AnyTime.picker( "dateTimeField");</script>
+
+	
+	
+	<tr><td>Description</td><td><textarea class="input" name="description" rows="8" ></textarea></td></tr>
 	
 </table>
 
@@ -79,6 +188,7 @@ function display($collection,&$up,$limit,$type) {
 		elseif($type == 'MB') echo "Manitoba:";
 		elseif($type == 'NB') echo "New Brunswik:";
 		elseif($type == 'NS') echo "Nova Scotia:";
+		elseif($type == 'PE') echo "PEI:";
 		else echo "Friends:"; ?>
 
 		</th><td><input type='checkbox' name='checkall' onclick='checkedAll(<?php echo $down.','.$up++; ?>);'>Select All</td></tr>
@@ -88,24 +198,24 @@ function display($collection,&$up,$limit,$type) {
 		foreach($collection as $page) {
 
 			$name = preg_replace('/Tigre Géant /', '', preg_replace('/Giant Tiger /', '', $page['name'], 1), 1);
-//			$storeNumber = substr( ( preg_replace('/Tigre Géant /', '', preg_replace('/Giant Tiger /', '', $page['description'], 1), 1) ) , 0, 4);
-
-			$storeNumber = $page['store_number'];
-
+			$storeNumber = substr( ( preg_replace('/Tigre Géant /', '', preg_replace('/Giant Tiger /', '', $page['description'], 1), 1) ) , 0, 4);
 			$province = $page['location']['state'];
 			$link = $page['link'];
 			$id = $page['id'];
 
 			if(!($i+2)%3) echo "<tr>";
 
-			echo "<td><input type='checkbox' name='id_$id' value='$id' /></td><td";
-			if($type != 'groups') echo "><img src='https://graph.facebook.com/$id/picture' /></td><td ";			
-			else echo " colspan='2' ";
-			echo "width='200' >";
+			echo "<td width='250'><input type='checkbox' name='id_$id' value='$id' />";
 //			echo "<a href='" . $link . "'>". $storeNumber. " " .$name. " " . " " . $page['location']['city'] . " [" .$page['likes']. "]" . "</a>" . "</td>";
-			echo "<a href='" . $link . "'>". $storeNumber. " " .$name. " " . " " . " [" .$page['likes']. "]" . "</a>" . "</td>";
+			echo "<a href='" . $link . "'><span class='store_number'>". $storeNumber. " " ."</span><span class='store_name'>" .$name. "</span>";
+			if($page['likes'] > 0)
+				echo "<span class='page_likes'>" .$page['likes']. "</span>"; 
+			if($page['unread_message_count'] > 0)					
+				echo "<span class='page_messages'>" .$page['unread_message_count']. "</span>";
+			if($page['unread_notif_count'] > 0)
+				echo "<span class='page_notifications'>" .$page['unread_notif_count']. "</span>". "</a>" . "</td>";
 
-			if(!($i%3)) echo "</tr>";
+			if(!($i%4)) echo "</tr>";
 			if($i++ == $limit) break;	
 		
 		}
@@ -132,6 +242,7 @@ foreach($pages['data'] as $page) {
 	if($page['location']['state'] == 'MB') $pagesMB[] = $page;
 	if($page['location']['state'] == 'NB') $pagesNB[] = $page;
 	if($page['location']['state'] == 'NS') $pagesNS[] = $page;
+	if($page['location']['state'] == 'PE') $pagesPE[] = $page;
 }
 
 display($pagesON,$up,$limit,'ON');
@@ -142,6 +253,7 @@ display($pagesSK,$up,$limit,'SK');
 display($pagesMB,$up,$limit,'MB');
 display($pagesNB,$up,$limit,'NB');
 display($pagesNS,$up,$limit,'NS');
+display($pagesPE,$up,$limit,'PE');
 //display($pages['data'],$up,$limit,'pages');
 //display($groups['data'],$up,$limit,'groups');
 //display($friends_list['data'],$up,$limit,'friends');
