@@ -235,7 +235,7 @@ foreach($pages['data'] as $page) {
 array_multisort($storeNumbers,SORT_ASC,$pages['data']);
 
 foreach($pages['data'] as $page) {
-	if($page['location']['state'] == 'ON' and  $page['id'] != "96000832822" and  $page['id'] != "187361710529") $pagesON[] = $page;
+	if($page['location']['state'] == 'ON' and  $page['id'] != "96000832822" and $page['id'] != "187361710529") $pagesON[] = $page;
 	if($page['location']['state'] == 'QC' and  $page['id'] != "187361710529" ) $pagesQC[] = $page;
 	if($page['location']['state'] == 'AB') $pagesAB[] = $page;
 	if($page['location']['state'] == 'BC') $pagesBC[] = $page;
