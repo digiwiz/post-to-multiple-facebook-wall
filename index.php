@@ -198,9 +198,7 @@ function display($collection,&$up,$limit,$type) {
 		foreach($collection as $page) {
 
 			$name = preg_replace('/Tigre Géant /', '', preg_replace('/Giant Tiger /', '', $page['name'], 1), 1);
-//			$storeNumber = substr( ( preg_replace('/Tigre Géant /', '', preg_replace('/Giant Tiger /', '', $page['description'], 1), 1) ) , 0, 4);
-
-			$storeNumber = (string)$page['store_number'];
+			$storeNumber = substr( ( preg_replace('/Tigre Géant /', '', preg_replace('/Giant Tiger /', '', $page['description'], 1), 1) ) , 0, 4);
 			$province = $page['location']['state'];
 			$link = $page['link'];
 			$id = $page['id'];
