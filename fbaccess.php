@@ -2,7 +2,7 @@
 //Application Configurations
 $app_id        = "544782395574012";
 $app_secret    = "800d3e20387241a325d33a8441da0550";
-$site_url      = "http://localhost/post-to-multiple-facebook-wall/";
+$site_url      = "https://pacific-gorge-5992.herokuapp.com/";
 
 
 
